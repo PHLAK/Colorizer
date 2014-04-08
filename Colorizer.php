@@ -13,7 +13,7 @@
     class Colorizer {
 
         // Class version
-        const VERSION = '0.1.0';
+        const VERSION = '0.1.1';
 
         // Reserve some variables
         protected $normalizeMin;
@@ -51,10 +51,15 @@
             // Normalize the color array
             $colorArray = $this->normalize($colorArray, $this->normalizeMin, $this->normalizeMax);
 
-            // Create hex color code
-            $hex = str_pad(dechex($colorArray['r']), 2, '0', STR_PAD_LEFT) . str_pad(dechex($colorArray['g']), 2, '0', STR_PAD_LEFT) . str_pad(dechex($colorArray['b']), 2, '0', STR_PAD_LEFT);
+            // Convert to hex color codes
+            foreach ($colorArray as $key => $color) {
+                $hexArray[$key] = str_pad(dechex($color), 2, '0', STR_PAD_LEFT);
+            }
 
-            // Return normalized hex color code
+            // Concat hex codes
+            $hex =  $hexArray['r'] . $hexArray['g'] . $hexArray['b'];
+
+            // Return hex color code
             return $hex;
 
         }
