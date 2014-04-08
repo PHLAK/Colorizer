@@ -3,7 +3,7 @@ Colorizer.php
 
 Generate persistantly unique colors from a string.
 
-### Example useage
+### Example usage
 
     // Initialize Colorizer
     $colorize = new PHLAK\Colorizer(64, 224);
