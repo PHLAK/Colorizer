@@ -13,7 +13,7 @@
     class Colorizer {
 
         // Class version
-        const VERSION = '0.1.1';
+        const VERSION = '0.2.0';
 
         // Reserve some variables
         protected $normalizeMin;
@@ -94,7 +94,7 @@
         private function getColorValues($string) {
 
             // Generate hash and truncate
-            $hash = substr(hash('md5', $string), 0, 6);
+            $hash = substr(hash('crc32', $string), 0, 6);
 
             // Generate RGB value array
             $rgbArray = array(
