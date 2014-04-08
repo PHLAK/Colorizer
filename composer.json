@@ -1,0 +1,24 @@
+{
+    "name": "phlak/colorizer",
+    "description": "Generate persistantly unique colors from a string.",
+    "keywords": ["colorize", "color hash", "color"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chris Kankiewicz",
+            "email": "Chris@ChrisKankiewicz.com",
+            "homepage": "http://www.chriskankiewicz.com"
+        }
+    ],
+    "support": {
+        "email": "chris@chriskankiewicz.com"
+    },
+    "require": {
+        "php" : ">=5.3.0"
+    },
+    "autoload": {
+        "classmap": [
+            "Colorizer.php"
+        ]
+    }
+}
