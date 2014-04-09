@@ -13,7 +13,7 @@
     class Colorizer {
 
         // Class version
-        const VERSION = '1.0.0';
+        const VERSION = '1.0.1';
 
         // Reserve some variables
         protected $normalizeMin;
@@ -147,7 +147,7 @@
          */
         public function setNormalizeMin($value) {
 
-            $this->normalizeMin = $value;
+            $this->normalizeMin = (int) $value;
 
         }
 
@@ -159,7 +159,7 @@
          */
         public function setNormalizeMax($value) {
 
-            $this->normalizeMax = $value;
+            $this->normalizeMax = (int) $value;
 
         }
 
