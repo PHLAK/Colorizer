@@ -17,8 +17,8 @@
         "php" : ">=5.3.0"
     },
     "autoload": {
-        "classmap": [
-            "Colorizer.php"
-        ]
+        "psr-0": {
+            "Colorizer": "src/"
+        }
     }
 }

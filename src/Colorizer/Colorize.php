@@ -1,6 +1,8 @@
 <?php
 
-    namespace PHLAK;
+    namespace Colorizer;
+
+    use Colorizer\Color;
 
     /**
      * Generate persistantly unique colors from a string.
@@ -10,10 +12,7 @@
      * @author Chris Kankiewicz (http://www.chriskankiewicz.com)
      * @copyright 2014 Chris Kankiewicz
      */
-    class Colorizer {
-
-        // Class version
-        const VERSION = '1.0.2';
+    class Colorize {
 
         // Reserve some variables
         protected $normalizeMin;
@@ -21,7 +20,7 @@
 
 
         /**
-         * Class constructor
+         * Colorize constructor, runs on object creation
          *
          * @param integer $normalizeMin Minimum normalized decimal value
          * @param integer $normalizeMax Maximum normalized decimal value
@@ -45,22 +44,11 @@
          */
         public function toHex($string) {
 
-            // Generate the color array
-            $colorArray = $this->getColorValues($string);
-
-            // Normalize the color array
-            $colorArray = $this->normalize($colorArray, $this->normalizeMin, $this->normalizeMax);
-
-            // Convert to hex color codes
-            foreach ($colorArray as $key => $color) {
-                $hexArray[$key] = str_pad(dechex($color), 2, '0', STR_PAD_LEFT);
-            }
-
-            // Concat hex codes
-            $hex =  $hexArray['r'] . $hexArray['g'] . $hexArray['b'];
+            // Generate the color object
+            $color = $this->stringToColor($string);
 
             // Return hex color code
-            return $hex;
+            return $color->toHex();
 
         }
 
@@ -69,15 +57,16 @@
          * Converts a string to a unique RGB color value
          *
          * @param  string $string Input string
-         * @return array          Array of RGB values
+         * @return object         Object containing RGB values
          */
         public function toRGB($string) {
 
-            // Generate the color array
-            $colorArray = $this->getColorValues($string);
+            // Generate the color object
+            $color = $this->stringToColor($string);
 
             // Normalize the color array
-            return $this->normalize($colorArray, $this->normalizeMin, $this->normalizeMax);
+            return $color;
+
         }
 
 
@@ -87,51 +76,23 @@
          * @param  string $string Input string
          * @return array          RGB color value array
          */
-        private function getColorValues($string) {
+        private function stringToColor($string) {
 
             // Generate hash and truncate
             $hash = substr(hash('crc32', $string), 0, 6);
 
             // Generate RGB value array
             $rgbArray = array(
-                'r' => hexdec(substr($hash, 0, 2)),
-                'g' => hexdec(substr($hash, 2, 2)),
-                'b' => hexdec(substr($hash, 4, 2))
+                'red'   => hexdec(substr($hash, 0, 2)),
+                'green' => hexdec(substr($hash, 2, 2)),
+                'blue'  => hexdec(substr($hash, 4, 2))
             );
 
-            // Return the array
-            return $rgbArray;
+            // Create new color object
+            $color = new Color($rgbArray);
 
-        }
-
-
-        /**
-         * Adjust color minimum and maximum values
-         *
-         * @param  array $hash RGB array generated from getColorValues()
-         * @param  int   $min  Minimum value in decimal (0 - 255)
-         * @param  int   $max  Maximum value in decimal (0 - 255)
-         * @return array       Normalize arry
-         */
-        private function normalize($rgbArray, $min, $max) {
-
-            // Normalize the color values
-            foreach ($rgbArray as $key => $int) {
-
-                if ($int < $min) {
-
-                    $rgbArray[$key] = $min;
-
-                } elseif ($int > $max) {
-
-                    $rgbArray[$key] = $max;
-
-                }
-
-            }
-
-            // Return the array
-            return $rgbArray;
+            // Return normalized color object
+            return $color->normalize($this->normalizeMin, $this->normalizeMax);
 
         }
 
