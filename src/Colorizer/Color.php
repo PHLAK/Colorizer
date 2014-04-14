@@ -45,7 +45,7 @@
 
                     $this->$key = $min;
 
-                } elseif ($int > $max) {
+                } elseif ($value > $max) {
 
                     $this->$key = $max;
 
