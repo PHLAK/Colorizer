@@ -77,11 +77,7 @@
             $colorArray = $this->getColorValues($string);
 
             // Normalize the color array
-            $colorArray = $this->normalize($colorArray, $this->normalizeMin, $this->normalizeMax);
-
-            // Return normalized hex color code
-            return $this->normalize($hash);
-
+            return $this->normalize($colorArray, $this->normalizeMin, $this->normalizeMax);
         }
 
 
