@@ -13,7 +13,7 @@
     class Colorizer {
 
         // Class version
-        const VERSION = '1.0.1';
+        const VERSION = '1.0.2';
 
         // Reserve some variables
         protected $normalizeMin;
