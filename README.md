@@ -5,10 +5,7 @@ Generate persistantly unique colors from a string.
 
 ### Install with Composer
 
-
-    "require": {
-        "colorizer/colorize": "1.1.*"
-    }
+    $ composer.phar require phlak/colorize:1.1.*
 
 ### Example usage
 
