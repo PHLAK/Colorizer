@@ -3,10 +3,17 @@ Colorizer.php
 
 Generate persistantly unique colors from a string.
 
+### Install with Composer
+
+
+    "require": {
+        "colorizer/colorize": "1.1.*"
+    }
+
 ### Example usage
 
     // Initialize Colorizer
-    $colorize = new PHLAK\Colorizer(64, 224);
+    $colorize = new Colorizer\Colorize(64, 224);
 
     // Generate a hex color code from 'foo'
     $hexColor = $colorize->toHex('foo');  // Returns 'a5c4e0'
