@@ -3,6 +3,8 @@ Colorizer.php
 
 Generate persistantly unique colors from a string.
 
+Like this project? Donate with Bitcoin: `1ANu3bfb4UqF1N26xrtnoM2eEcDdhK7ZWC`
+
 ### Install with Composer
 
     $ composer.phar require phlak/colorize:1.1.*
