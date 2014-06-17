@@ -1,21 +1,39 @@
 Colorizer.php
 ===============
 
+[![Latest Stable Version](https://poser.pugx.org/phlak/colorizer/v/stable.png)](https://packagist.org/packages/phlak/colorizer)
+[![Total Downloads](https://poser.pugx.org/phlak/colorizer/downloads.png)](https://packagist.org/packages/phlak/colorizer)
+[![License](https://poser.pugx.org/phlak/colorizer/license.png)](https://packagist.org/packages/phlak/colorizer)
+
 Generate persistantly unique colors from a string.
 
-Like this project? Donate with Bitcoin: `1ANu3bfb4UqF1N26xrtnoM2eEcDdhK7ZWC`
+Like this project? Donate via Bitcoin: `1ANu3bfb4UqF1N26xrtnoM2eEcDdhK7ZWC`
 
 ### Install with Composer
 
-    $ composer.phar require phlak/colorize:1.1.*
+```bash
+$ composer.phar require phlak/colorize:1.1.*
+```
 
 ### Example usage
 
-    // Initialize Colorizer
-    $colorize = new Colorizer\Colorize(64, 224);
+```php
+// Initialize Colorizer
+$colorize = new Colorizer\Colorize();
 
-    // Generate a hex color code from 'foo'
-    $hexColor = $colorize->toHex('foo');  // Returns 'a5c4e0'
+// Generate a hex color code from 'foo'
+$hexColor = $colorize->toHex('foo');  // Returns '#a5c4e0'
+```
+
+### Normalizing Colors
+
+You can enforce RGB values to fall within a certain range to prevent colors
+from being too bright or dark.  This is possible by passing minimum and maximum
+normalization values (0-255) to the Colorize class on initialization:
+
+```php
+$colorize = new Colorizer\Colorize(64, 224);
+```
 
 -----
 
