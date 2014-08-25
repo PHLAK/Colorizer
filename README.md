@@ -12,7 +12,7 @@ Like this project? Donate via Bitcoin: `1ANu3bfb4UqF1N26xrtnoM2eEcDdhK7ZWC`
 ### Install with Composer
 
 ```bash
-$ composer.phar require phlak/colorize:1.1.*
+$ composer.phar require phlak/colorizer:1.1.*
 ```
 
 ### Example usage
