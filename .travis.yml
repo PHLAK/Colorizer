@@ -1,5 +1,6 @@
 language: php
 sudo: false
+install: composer install --dev
 php:
     - 5.3
     - 5.4
