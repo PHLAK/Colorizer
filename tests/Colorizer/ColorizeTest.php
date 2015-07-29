@@ -9,7 +9,7 @@
 
             // Test the output
             $this->assertEquals(
-                new Colorizer\Color(['red' => 165, 'green' => 196, 'blue' => 254]),
+                new Colorizer\Color(array('red' => 165, 'green' => 196, 'blue' => 254)),
                 $rgbColor = $colorize->toRGB('foo')
             );
 
@@ -34,7 +34,7 @@
 
             // Test the output
             $this->assertEquals(
-                new Colorizer\Color(['red' => 64, 'green' => 64, 'blue' => 224]),
+                new Colorizer\Color(array('red' => 64, 'green' => 64, 'blue' => 224)),
                 $colorize->toRGB('Taco bueno!')
             );
 
