@@ -6,7 +6,7 @@ Colorizer.php
 [![License](https://poser.pugx.org/phlak/colorizer/license.png)](https://packagist.org/packages/phlak/colorizer)
 [![Build Status](https://travis-ci.org/PHLAK/colorizer.svg?branch=master)](https://travis-ci.org/PHLAK/colorizer)
 
-Generate persistantly unique colors from a string.
+Generate persistently unique colors from a string.
 
 Like this project? Donate via Bitcoin: `1ANu3bfb4UqF1N26xrtnoM2eEcDdhK7ZWC`
 
