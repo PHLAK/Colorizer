@@ -37,10 +37,8 @@
 
     <?php foreach ($animals as $animal): ?>
 
-        <?php $color = $colorize->toRGB($animal); ?>
-
         <div class="swatch-wrapper">
-            <div class="swatch" style="background-color: rgb(<?php echo $color->red; ?>, <?php echo $color->green; ?>, <?php echo $color->blue; ?>);">
+            <div class="swatch" style="background-color: <?php echo $colorize->toRGB($animal); ?>;">
                 <?php echo $animal; ?>
             </div>
         </div>

@@ -1,5 +1,5 @@
 Colorizer.php
-===============
+=============
 
 [![Latest Stable Version](https://poser.pugx.org/phlak/colorizer/v/stable.png)](https://packagist.org/packages/phlak/colorizer)
 [![Total Downloads](https://poser.pugx.org/phlak/colorizer/downloads.png)](https://packagist.org/packages/phlak/colorizer)
@@ -13,7 +13,7 @@ Like this project? Donate via Bitcoin: `1ANu3bfb4UqF1N26xrtnoM2eEcDdhK7ZWC`
 ### Install with Composer
 
 ```bash
-$ composer.phar require phlak/colorizer:1.2.*
+$ composer.phar require phlak/colorizer:^1.3
 ```
 
 ### Example usage
