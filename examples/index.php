@@ -1,8 +1,7 @@
 <?php
 
-    // Load Colorizer classes
-    require_once '../src/Colorizer/Colorize.php';
-    require_once '../src/Colorizer/Color.php';
+    // Initialize autoloader
+    require_once '../vendor/autoload.php';
 
     // Initialize Colorizer
     $colorize = new Colorizer\Colorize(64, 224);

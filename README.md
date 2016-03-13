@@ -13,7 +13,7 @@ Like this project? Donate via Bitcoin: `1ANu3bfb4UqF1N26xrtnoM2eEcDdhK7ZWC`
 ### Install with Composer
 
 ```bash
-$ composer.phar require phlak/colorizer:1.1.*
+$ composer.phar require phlak/colorizer:1.2.*
 ```
 
 ### Example usage
@@ -38,7 +38,7 @@ $colorize = new Colorizer\Colorize(64, 224);
 
 -----
 
-**Copyright (c) 2015 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
+**Copyright (c) 2016 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
