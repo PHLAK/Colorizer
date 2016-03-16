@@ -8,7 +8,7 @@ Colorizer.php
 
 Generate persistently unique colors from a string.
 
-Like this project? Donate via Bitcoin: `1ANu3bfb4UqF1N26xrtnoM2eEcDdhK7ZWC`
+Like this project? Want to keep it free? [Make a donation](https://www.paypal.me/ChrisKankiewicz).
 
 ### Install with Composer
 
