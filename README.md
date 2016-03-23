@@ -25,6 +25,9 @@ $colorize = new Colorizer\Colorize();
 
 // Generate a hex color code from 'foo'
 $hexColor = $colorize->toHex('foo');  // Returns '#a5c4e0'
+
+// Generate a RGB color code from 'bar'
+$rgbColor = $colorize->toRGB('bar');  // Returns 'rgb(238, 215, 222)'
 ```
 
 ### Normalizing Colors
