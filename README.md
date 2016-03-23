@@ -3,9 +3,9 @@ Colorizer.php
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/phlak/colorizer.svg)](https://packagist.org/packages/phlak/colorizer)
 [![Total Downloads](https://img.shields.io/packagist/dt/phlak/colorizer.svg)](https://packagist.org/packages/phlak/colorizer)
+[![Author](https://img.shields.io/badge/Author-Chris%20Kankiewicz-green.svg)](https://www.ChrisKankiewicz.com)
 [![License](https://img.shields.io/packagist/l/phlak/colorizer.svg)](https://packagist.org/packages/phlak/colorizer)
 [![Build Status](https://img.shields.io/travis/PHLAK/colorizer.svg)](https://travis-ci.org/PHLAK/colorizer)
-[![Author](https://img.shields.io/badge/Author-Chris%20Kankiewicz-green.svg)](https://www.ChrisKankiewicz.com)
 
 Generate persistently unique colors from a string.
 
