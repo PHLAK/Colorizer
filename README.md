@@ -1,5 +1,5 @@
-Colorizer.php
-=============
+Colorizer
+=========
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/phlak/colorizer.svg)](https://packagist.org/packages/phlak/colorizer)
 [![Total Downloads](https://img.shields.io/packagist/dt/phlak/colorizer.svg)](https://packagist.org/packages/phlak/colorizer)
@@ -9,17 +9,22 @@ Colorizer.php
 
 Generate persistently unique colors from a string.
 
-Like this project? Want to keep it free? [Make a donation](https://www.paypal.me/ChrisKankiewicz).
+Like this project? Keep me caffeinated by [making a donation](https://paypal.me/ChrisKankiewicz).
 
-### Install with Composer
+Install with Composer
+---------------------
 
 ```bash
-$ composer.phar require phlak/colorizer:^1.3
+composer require phlak/colorizer
 ```
 
-### Example usage
+Usage
+-----
 
 ```php
+// Import Colorizer
+use Colorizer;
+
 // Initialize Colorizer
 $colorize = new Colorizer\Colorize();
 
@@ -30,7 +35,7 @@ $hexColor = $colorize->toHex('foo');  // Returns '#a5c4e0'
 $rgbColor = $colorize->toRGB('bar');  // Returns 'rgb(238, 215, 222)'
 ```
 
-### Normalizing Colors
+#### Normalizing Colors
 
 You can enforce RGB values to fall within a certain range to prevent colors
 from being too bright or dark.  This is possible by passing minimum and maximum
@@ -38,6 +43,12 @@ normalization values (0-255) to the Colorize class on initialization:
 
 ```php
 $colorize = new Colorizer\Colorize(64, 224);
+```
+
+or on an already existing object:
+
+```php
+$colorize->normalize(64, 224);
 ```
 
 -----
