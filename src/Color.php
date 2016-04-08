@@ -35,9 +35,9 @@
          * @param float $alpha Alpha value (0 - 1)
          */
         public function __construct($red = 0, $green = 0, $blue = 0, $alpha = 1) {
-            if ($this->colorWithinRange($red)) $this->red = $red;
-            if ($this->colorWithinRange($green)) $this->green = $green;
-            if ($this->colorWithinRange($blue)) $this->blue = $blue;
+            if ($this->inRange($red, 0, 255)) $this->red = $red;
+            if ($this->inRange($green, 0, 255)) $this->green = $green;
+            if ($this->inRange($blue, 0, 255)) $this->blue = $blue;
             $this->alpha = $alpha;
         }
 
@@ -89,7 +89,6 @@
             return $this->blue();
         }
 
-
         /**
          * Adjust color minimum and maximum normalized values
          *
@@ -107,7 +106,6 @@
             return new static($red, $green, $blue);
 
         }
-
 
         /**
          * Returns the a hex string representation of the color object
@@ -143,20 +141,16 @@
         }
 
         /**
-         * Verifies weather a given value is an acceptable color value (0 - 255)
+         * Verifies weather a given value is within $min and $max (inclusive)
          *
          * @param  int  $value Integer value to test
+         * @param  int  $min   Minimum acceptable value
+         * @param  int  $max   Maximum acceptable value
          *
          * @return bool        True if value is within acceptable range
          */
-        protected function colorWithinRange($value) {
-
-            if (gettype($value) != 'integer') {
-                throw new Exception('Parameter not of acceptable type (int)');
-            }
-
-            return 0 <= $value && $value <= 255;
-
+        protected function inRange($value, $min, $max) {
+            return $min <= $value && $value <= $max;
         }
 
         /**
