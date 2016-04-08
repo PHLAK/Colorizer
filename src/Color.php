@@ -2,7 +2,7 @@
 
     namespace Colorizer;
 
-    use \Exception;
+    use Exception;
 
     /**
      * This software is liscensed under the MIT License.
@@ -15,131 +15,71 @@
         protected $red;
         protected $green;
         protected $blue;
+        protected $alpha;
 
         /**
          * Color constructor, runs on object creation
          *
-         * @param int $red   Red color value
-         * @param int $green Green color value
-         * @param int $blue  Blue color value
+         * @param int   $red   Red color value (0 - 255)
+         * @param int   $green Green color value (0 - 255)
+         * @param int   $blue  Blue color value (0 - 255)
+         * @param float $alpha Alpha value (0 - 1)
          */
-        public function __construct($red = 0, $green = 0, $blue = 0) {
-            $this->rgb(['red' => $red, 'green' => $green, 'blue' => $blue]);
+        public function __construct($red = 0, $green = 0, $blue = 0, $alpha = 1) {
+            if ($this->colorWithinRange($red)) $this->red = $red;
+            if ($this->colorWithinRange($green)) $this->green = $green;
+            if ($this->colorWithinRange($blue)) $this->blue = $blue;
+            $this->alpha = $alpha;
         }
 
         /**
-         * Set or retrieve the object's red value
+         * Get the object's red value
          *
-         * @param  int|empty  $value The desired red color value (0 - 255)
-         *
-         * @return int|object        If parameter is set, returns this object.
-         *                           If parameter is not set, returns this
-         *                           object's red value.
+         * @return int This object's red value
          */
-        public function red($value = null) {
-
-            if (isset($value) && $this->withinRange($value)) {
-                $this->red = $value;
-                return $this;
-            }
-
+        public function red() {
             return $this->red;
-
         }
 
         /**
          * Alias method for $this->red()
          */
-        public function r($value = null) {
-            return $this->red($value);
+        public function r() {
+            return $this->red();
         }
 
         /**
-         * Set or retrieve the object's green value
+         * Get the object's green value
          *
-         * @param  int|empty  $value The desired green color value (0 - 255)
-         *
-         * @return int|object        If parameter is set, returns this object.
-         *                           If parameter is not set, returns this
-         *                           object's green value.
+         * @return int This object's green value
          */
-        public function green($value = null) {
-
-            if (isset($value) && $this->withinRange($value)) {
-                $this->green = $value;
-                return $this;
-            }
-
+        public function green() {
             return $this->green;
-
         }
 
         /**
          * Alias method for $this->green()
          */
-        public function g($value = null) {
-            return $this->green($value);
+        public function g() {
+            return $this->green();
         }
 
         /**
-         * Set or retrieve the object's blue value
+         * Get the object's blue value
          *
-         * @param  int|empty  $value The desired blue color value (0 - 255)
-         *
-         * @return int|object        If parameter is set, returns this object.
-         *                           If parameter is not set, returns this
-         *                           object's blue value.
+         * @return int This object's blue value
          */
-        public function blue($value = null) {
-
-            if (isset($value) && $this->withinRange($value)) {
-                $this->blue = $value;
-                return $this;
-            }
-
+        public function blue() {
             return $this->blue;
-
         }
 
         /**
          * Alias method for $this->blue()
          */
-        public function b($value = null) {
-            return $this->blue($value);
+        public function b() {
+            return $this->blue();
         }
 
-        /**
-         * Set the object's red, green and blue values simultaneously by passing
-         * an associative array of color values
-         *
-         * @param  array|empty  $rgb An associative array of rgb color => values
-         *                           ['red' => 32, 'green' => 64, 'blue' => '128']
-         *
-         * @return array|object      This color object
-         */
-        public function rgb($rgb = null) {
-
-            if (!empty($rgb)) {
-
-                if (gettype($rgb) != 'array') {
-                    throw new Exception('Parameter not of acceptable type (array)');
-                }
-
-                $this->red($rgb['red']);
-                $this->green($rgb['green']);
-                $this->blue($rgb['blue']);
-
-                return $this;
-
-            }
-
-            return [
-                'red'   => $this->red,
-                'green' => $this->green,
-                'blue'  => $this->blue
-            ];
-
-        }
 
         /**
          * Adjust color minimum and maximum normalized values
@@ -147,21 +87,15 @@
          * @param  int   $min Minimum normalize value as integer (0 - 255)
          * @param  int   $max Maximum normalize value as integer (0 - 255)
          *
-         * @return array      Normalized object
+         * @return object     Normalized color object
          */
         public function normalize($min, $max) {
 
-            foreach ($this as $key => $value) {
+            $red   = min(max($this->red, $min), $max);
+            $green = min(max($this->green, $min), $max);
+            $blue  = min(max($this->blue, $min), $max);
 
-                if ($value < $min) {
-                    $this->$key = $min;
-                } elseif ($value > $max) {
-                    $this->$key = $max;
-                }
-
-            }
-
-            return $this;
+            return new static($red, $green, $blue);
 
         }
 
@@ -171,24 +105,32 @@
          *
          * @return  string  Hex string representation
          */
-        public function toHex() {
+        public function hex() {
 
-            // Convert to hex values
-            foreach ($this as $key => $color) {
-                $hexArray[$key] = str_pad(dechex($color), 2, '0', STR_PAD_LEFT);
-            }
+            $red   = $this->decToHex($this->red);
+            $green = $this->decToHex($this->green);
+            $blue  = $this->decToHex($this->blue);
 
-            return '#' . $hexArray['red'] . $hexArray['green'] . $hexArray['blue'];
+            return '#' . $red . $green . $blue;
 
         }
 
         /**
-         * Returns the an rgb() string representation of the color object
+         * Returns a rgb() string representation of the color object
          *
          * @return  string  rgb() string representation
          */
-        public function toRGB() {
+        public function rgb() {
             return 'rgb(' . $this->red . ', ' . $this->green . ', ' . $this->blue . ')';
+        }
+
+        /**
+         * Returns a rgba() string representation of the color object
+         *
+         * @return string rgba() string representation
+         */
+        public function rgba() {
+            return 'rgba(' . $this->red . ', ' . $this->green . ', ' . $this->blue . ', ' . $this->alpha . ')';
         }
 
         /**
@@ -198,7 +140,7 @@
          *
          * @return bool         True if value is within acceptable range
          */
-        public function withinRange($value) {
+        protected function colorWithinRange($value) {
 
             if (gettype($value) != 'integer') {
                 throw new Exception('Parameter not of acceptable type (int)');
@@ -206,6 +148,16 @@
 
             return 0 <= $value && $value <= 255;
 
+        }
+
+        /**
+         * Converts an integer decimal value to a padded hex value
+         *
+         * @param  int    $value Decimal integer value
+         * @return string        String hex value
+         */
+        protected function decToHex($value) {
+            return str_pad(dechex($value), 2, '0', STR_PAD_LEFT);
         }
 
     }
