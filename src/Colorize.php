@@ -15,15 +15,18 @@
      */
     class Colorize {
 
+        /** @var int Minimum normalization value */
         protected $normalizeMin;
+
+        /** @var int Maximum normalization value */
         protected $normalizeMax;
 
 
         /**
          * Colorize constructor, runs on object creation
          *
-         * @param integer $normalizeMin Minimum normalized decimal value
-         * @param integer $normalizeMax Maximum normalized decimal value
+         * @param int $normalizeMin Minimum normalized decimal value
+         * @param int $normalizeMax Maximum normalized decimal value
          */
         public function __construct($normalizeMin = 0, $normalizeMax = 255) {
             $this->normalize($normalizeMin, $normalizeMax);
@@ -65,7 +68,7 @@
          *
          * @param  string $string Input string
          *
-         * @return array          RGB color value array
+         * @return object         Color object
          */
         private function stringToColor($string) {
 
@@ -88,7 +91,7 @@
         /**
          * Set minimum nomalization value
          *
-         * @param int     $value Minimum normalization value (0 - 255)
+         * @param  int    $value Minimum normalization value (0 - 255)
          *
          * @return object        This colorize object
          */
@@ -107,7 +110,7 @@
         /**
          * Set maximum nomalization value
          *
-         * @param int $value Maximum normalization value (0 - 255)
+         * @param  int    $value Maximum normalization value (0 - 255)
          *
          * @return object        This colorize object
          */

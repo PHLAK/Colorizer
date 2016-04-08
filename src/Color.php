@@ -5,6 +5,8 @@
     use Exception;
 
     /**
+     * Class representation of a color.
+     *
      * This software is liscensed under the MIT License.
      *
      * @author Chris Kankiewicz (http://www.chriskankiewicz.com)
@@ -12,9 +14,16 @@
      */
     class Color {
 
+        /** @var int Red color value */
         protected $red;
+
+        /** @var int Green color value */
         protected $green;
+
+        /** @var int Blue color value */
         protected $blue;
+
+        /** @var float Alpha channel value */
         protected $alpha;
 
         /**
@@ -84,10 +93,10 @@
         /**
          * Adjust color minimum and maximum normalized values
          *
-         * @param  int   $min Minimum normalize value as integer (0 - 255)
-         * @param  int   $max Maximum normalize value as integer (0 - 255)
+         * @param  int    $min Minimum normalize value as integer (0 - 255)
+         * @param  int    $max Maximum normalize value as integer (0 - 255)
          *
-         * @return object     Normalized color object
+         * @return object      Normalized color object
          */
         public function normalize($min, $max) {
 
@@ -103,7 +112,7 @@
         /**
          * Returns the a hex string representation of the color object
          *
-         * @return  string  Hex string representation
+         * @return string Hex string representation
          */
         public function hex() {
 
@@ -118,7 +127,7 @@
         /**
          * Returns a rgb() string representation of the color object
          *
-         * @return  string  rgb() string representation
+         * @return string rgb() string representation
          */
         public function rgb() {
             return 'rgb(' . $this->red . ', ' . $this->green . ', ' . $this->blue . ')';
@@ -136,9 +145,9 @@
         /**
          * Verifies weather a given value is an acceptable color value (0 - 255)
          *
-         * @param  int  $value  Integer value to test
+         * @param  int  $value Integer value to test
          *
-         * @return bool         True if value is within acceptable range
+         * @return bool        True if value is within acceptable range
          */
         protected function colorWithinRange($value) {
 
