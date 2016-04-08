@@ -98,8 +98,8 @@
          */
         public function normalize($min = 0, $max = 255) {
 
-            $this->normalizeMin($min);
-            $this->normalizeMax($max);
+            $this->normalizeMin = $min;
+            $this->normalizeMax = $max;
 
             return $this;
 
