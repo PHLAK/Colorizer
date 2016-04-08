@@ -99,6 +99,10 @@
          */
         public function normalize($min, $max) {
 
+            if (! $this->inRange($min, 0, 255) && $this->inRange($max, 0, 255)) {
+                throw new \OutOfRangeException('Normalization value must be between 0 and 255 (inclusive)');
+            }
+
             $red   = min(max($this->red, $min), $max);
             $green = min(max($this->green, $min), $max);
             $blue  = min(max($this->blue, $min), $max);
