@@ -15,7 +15,6 @@
      */
     class Colorize {
 
-        // Reserve some variables
         protected $normalizeMin;
         protected $normalizeMax;
 
@@ -43,7 +42,7 @@
             $color = $this->stringToColor($string);
 
             // Return hex color code
-            return $color->toHex();
+            return $color->hex();
 
         }
 
@@ -57,7 +56,7 @@
         public function toRGB($string) {
 
             // Generate the rgb color values
-            return $this->stringToColor($string)->toRGB();
+            return $this->stringToColor($string)->rgb();
 
         }
 
