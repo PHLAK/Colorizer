@@ -89,44 +89,6 @@
         }
 
         /**
-         * Set minimum nomalization value
-         *
-         * @param  int    $value Minimum normalization value (0 - 255)
-         *
-         * @return object        This colorize object
-         */
-        public function normalizeMin($value) {
-
-            if ($value < 0 || $value > 255) {
-                throw new Exception('Value out of range (0 - 255)');
-            }
-
-            $this->normalizeMin = (int) $value;
-
-            return $this;
-
-        }
-
-        /**
-         * Set maximum nomalization value
-         *
-         * @param  int    $value Maximum normalization value (0 - 255)
-         *
-         * @return object        This colorize object
-         */
-        public function normalizeMax($value) {
-
-            if ($value < 0 || $value > 255) {
-                throw new Exception('Value out of range (0 - 255)');
-            }
-
-            $this->normalizeMax = (int) $value;
-
-            return $this;
-
-        }
-
-        /**
          * Set min and max normalization values simultaneously
          *
          * @param int     $value Minimum normalization value (0 - 255)
@@ -134,7 +96,7 @@
          *
          * @return object        This colorize object
          */
-        public function normalize($min, $max) {
+        public function normalize($min = 0, $max = 255) {
 
             $this->normalizeMin($min);
             $this->normalizeMax($max);
