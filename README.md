@@ -5,7 +5,7 @@ Colorizer
 [![Total Downloads](https://img.shields.io/packagist/dt/phlak/colorizer.svg)](https://packagist.org/packages/phlak/colorizer)
 [![Author](https://img.shields.io/badge/author-Chris%20Kankiewicz-blue.svg)](https://www.ChrisKankiewicz.com)
 [![License](https://img.shields.io/packagist/l/phlak/colorizer.svg)](https://packagist.org/packages/phlak/colorizer)
-[![Build Status](https://img.shields.io/travis/PHLAK/colorizer.svg)](https://travis-ci.org/PHLAK/colorizer)
+[![Build Status](https://img.shields.io/travis/PHLAK/Colorizer.svg)](https://travis-ci.org/PHLAK/Colorizer)
 
 Generate persistently unique colors from a string.
 
