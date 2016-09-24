@@ -11,7 +11,6 @@ use Exception;
  * This software is liscensed under the MIT License.
  *
  * @author Chris Kankiewicz (http://www.chriskankiewicz.com)
- * @copyright 2016 Chris Kankiewicz
  */
 class Colorize
 {
