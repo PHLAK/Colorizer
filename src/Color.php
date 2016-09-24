@@ -43,57 +43,15 @@ class Color
     }
 
     /**
-     * Get the object's red value
+     * Class magic getter method, allows retrieving of class property values
      *
-     * @return int This object's red value
-     */
-    public function red()
-    {
-        return $this->red;
-    }
-
-    /**
-     * Alias method for $this->red()
-     */
-    public function r()
-    {
-        return $this->red();
-    }
-
-    /**
-     * Get the object's green value
+     * @param  string $property Property name
      *
-     * @return int This object's green value
+     * @return mixed            Property value
      */
-    public function green()
+    public function __get($property)
     {
-        return $this->green;
-    }
-
-    /**
-     * Alias method for $this->green()
-     */
-    public function g()
-    {
-        return $this->green();
-    }
-
-    /**
-     * Get the object's blue value
-     *
-     * @return int This object's blue value
-     */
-    public function blue()
-    {
-        return $this->blue;
-    }
-
-    /**
-     * Alias method for $this->blue()
-     */
-    public function b()
-    {
-        return $this->blue();
+        return $this->$property;
     }
 
     /**

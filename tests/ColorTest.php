@@ -11,20 +11,17 @@ class ColorTest extends PHPUnit_Framework_TestCase
 
     public function test_it_has_a_red_value()
     {
-        $this->assertEquals(12, $this->color->red());
-        $this->assertEquals(12, $this->color->r());
+        $this->assertEquals(12, $this->color->red);
     }
 
     public function test_it_has_a_green_value()
     {
-        $this->assertEquals(162, $this->color->green());
-        $this->assertEquals(162, $this->color->g());
+        $this->assertEquals(162, $this->color->green);
     }
 
     public function test_it_has_a_blue_value()
     {
-        $this->assertEquals(234, $this->color->blue());
-        $this->assertEquals(234, $this->color->b());
+        $this->assertEquals(234, $this->color->blue);
     }
 
     public function test_it_has_an_rgb_value()
