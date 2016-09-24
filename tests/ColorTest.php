@@ -24,6 +24,11 @@ class ColorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(234, $this->color->blue);
     }
 
+    public function test_it_has_a_hex_value()
+    {
+        $this->assertEquals('#0ca2ea', $this->color->hex());
+    }
+
     public function test_it_has_an_rgb_value()
     {
         $this->assertEquals('rgb(12, 162, 234)', $this->color->rgb());
