@@ -40,4 +40,11 @@ class ColorTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(new Colorizer\Color(64, 162, 224), $normalize);
     }
+
+    public function test_it_throws_an_exception_when_normalized_with_an_incorrect_value()
+    {
+        $this->setExpectedException('OutOfRangeException');
+
+        $color = $this->color->normalize(-1, 256);
+    }
 }
