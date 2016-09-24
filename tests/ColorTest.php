@@ -34,6 +34,11 @@ class ColorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('rgb(12, 162, 234)', $this->color->rgb());
     }
 
+    public function test_it_has_an_rgba_value()
+    {
+        $this->assertEquals('rgba(12, 162, 234, 1)', $this->color->rgba());
+    }
+
     public function test_it_can_be_normalized()
     {
         $normalize = $this->color->normalize(64, 224);

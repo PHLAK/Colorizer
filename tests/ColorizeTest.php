@@ -33,5 +33,4 @@ class ColorizeTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('rgb(64, 64, 224)', $normalized->toRGB('Taco bueno!'));
     }
-
 }
