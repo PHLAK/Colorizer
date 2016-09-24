@@ -2,7 +2,7 @@
 
 namespace Colorizer;
 
-use Exception;
+use OutOfRangeException;
 
 /**
  * Class representation of a color.
@@ -63,8 +63,8 @@ class Color
      */
     public function normalize($min, $max)
     {
-        if (! $this->inRange($min, 0, 255) && $this->inRange($max, 0, 255)) {
-            throw new \OutOfRangeException('Normalization value must be between 0 and 255 (inclusive)');
+        if (! $this->inRange($min, 0, 255) || ! $this->inRange($max, 0, 255)) {
+            throw new OutOfRangeException('Normalization value must be between 0 and 255 (inclusive)');
         }
 
         $red   = min(max($this->red, $min), $max);
