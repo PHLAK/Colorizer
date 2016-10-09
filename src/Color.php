@@ -2,6 +2,7 @@
 
 namespace Colorizer;
 
+use InvalidArgumentException;
 use OutOfRangeException;
 
 /**
@@ -33,11 +34,25 @@ class Color
      * @param int   $blue  Blue color value (0 - 255)
      * @param float $alpha Alpha value (0 - 1)
      */
-    public function __construct($red = 0, $green = 0, $blue = 0, $alpha = 1)
+    public function __construct($red, $green, $blue, $alpha = 1)
     {
-        if ($this->inRange($red, 0, 255)) $this->red = $red;
-        if ($this->inRange($green, 0, 255)) $this->green = $green;
-        if ($this->inRange($blue, 0, 255)) $this->blue = $blue;
+        foreach ([$red, $green, $blue] as $var) {
+            if (! is_int($var)) {
+                throw new InvalidArgumentException('RGB values must be an integer');
+            }
+        }
+
+        if (! $this->inRange([$red, $green, $blue], 0, 255)) {
+            throw new OutOfRangeException('RGB values must be between 0 and 255 (inclusive)');
+        }
+
+        if (! $this->inRange($alpha, 0, 1)) {
+            throw new OutOfRangeException('Alpha value must be between 0 and 1 (inclusive)');
+        }
+
+        $this->red   = $red;
+        $this->green = $green;
+        $this->blue  = $blue;
         $this->alpha = $alpha;
     }
 
@@ -54,7 +69,7 @@ class Color
     }
 
     /**
-     * Adjust color minimum and maximum normalized values
+     * Force color values to be within a specific range
      *
      * @param  int    $min Minimum normalize value as integer (0 - 255)
      * @param  int    $max Maximum normalize value as integer (0 - 255)
@@ -109,17 +124,33 @@ class Color
     }
 
     /**
-     * Verifies weather a given value is within $min and $max (inclusive)
+     * Verifies weather a given value or array of values is within a specified
+     * range (inclusive)
      *
-     * @param  int  $value Integer value to test
-     * @param  int  $min   Minimum acceptable value
-     * @param  int  $max   Maximum acceptable value
+     * @param  mixed $value Integer value or array of integer values to test
+     * @param  int   $min   Minimum acceptable value
+     * @param  int   $max   Maximum acceptable value
      *
-     * @return bool        True if value is within acceptable range
+     * @return bool         True if value is within acceptable range
      */
     protected function inRange($value, $min, $max)
     {
-        return $min <= $value && $value <= $max;
+        switch (gettype($value)) {
+            case 'integer':
+                return $min <= $value && $value <= $max;
+                break;
+
+            case 'array':
+                foreach ($value as $val) {
+                    if ($val < $min || $val > $max) return false;
+                }
+                return true;
+                break;
+
+            default:
+                throw new InvalidArgumentException;
+                break;
+        }
     }
 
     /**
