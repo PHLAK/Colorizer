@@ -14,10 +14,10 @@ use Colorizer\Color;
 class Colorize
 {
     /** @var int Minimum normalization value */
-    protected $normalizeMin;
+    protected $normalizeMin = 0;
 
     /** @var int Maximum normalization value */
-    protected $normalizeMax;
+    protected $normalizeMax = 255;
 
     /**
      * Colorize constructor, runs on object creation
