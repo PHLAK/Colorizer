@@ -11,6 +11,11 @@ Generate persistently unique colors from a string.
 
 Like this project? Keep me caffeinated by [making a donation](https://paypal.me/ChrisKankiewicz).
 
+Requirements
+------------
+
+  - [PHP](https://php.net) >= 5.4
+
 Install with Composer
 ---------------------
 
