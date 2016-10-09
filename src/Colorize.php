@@ -3,7 +3,6 @@
 namespace Colorizer;
 
 use Colorizer\Color;
-use Exception;
 
 /**
  * Generate persistantly unique colors from a string.
