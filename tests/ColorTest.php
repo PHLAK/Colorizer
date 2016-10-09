@@ -46,6 +46,27 @@ class ColorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(new Colorizer\Color(64, 162, 224), $normalize);
     }
 
+    public function test_it_throws_an_exception_when_initialized_with_an_incorrect_rgb_value()
+    {
+        $this->setExpectedException('OutOfRangeException');
+
+        new Colorizer\Color(12, 1337, 234);
+    }
+
+    public function test_it_throws_an_exception_when_initialized_with_an_incorrect_rgb_type()
+    {
+        $this->setExpectedException('InvalidArgumentException');
+
+        new Colorizer\Color('potato', 162, 234);
+    }
+
+    public function test_it_throws_an_exception_when_initialized_with_an_incorrect_alpha_value()
+    {
+        $this->setExpectedException('OutOfRangeException');
+
+        new Colorizer\Color(12, 162, 234, 2);
+    }
+
     public function test_it_throws_an_exception_when_normalized_with_an_incorrect_value()
     {
         $this->setExpectedException('OutOfRangeException');
