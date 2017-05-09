@@ -5,13 +5,6 @@ namespace Colorizer;
 use InvalidArgumentException;
 use OutOfRangeException;
 
-/**
- * Class representation of a color.
- *
- * This software is liscensed under the MIT License.
- *
- * @author Chris Kankiewicz (http://www.chriskankiewicz.com)
- */
 class Color
 {
     /** @var int Red color value */
@@ -142,7 +135,7 @@ class Color
 
             case 'array':
                 foreach ($value as $val) {
-                    if ($val < $min || $val > $max) return false;
+                    if (! $this->inRange($val, $min, $max)) return false;
                 }
                 return true;
                 break;
