@@ -33,11 +33,17 @@ use Colorizer;
 // Initialize Colorizer
 $colorize = new Colorizer\Colorize();
 
+// Generate a Color object from 'foo'
+$color = $colorize->text('foo'); // Returns a new Color object
+echo $color->red;    // 165
+echo $color->green;  // 196
+echo $color->blue;   // 254
+
 // Generate a hex color code from 'foo'
-$hexColor = $colorize->toHex('foo');  // Returns '#a5c4e0'
+$hexColor = $colorize->->text('foo')->hex();  // Returns '#a5c4fe'
 
 // Generate a RGB color code from 'bar'
-$rgbColor = $colorize->toRGB('bar');  // Returns 'rgb(238, 215, 222)'
+$rgbColor = $colorize->text('foo')->rgb();  // Returns 'rgb(165, 196, 254)'
 ```
 
 #### Normalizing Colors
@@ -50,10 +56,10 @@ normalization values (0-255) to the Colorize class on initialization:
 $colorize = new Colorizer\Colorize(64, 224);
 ```
 
-or on an already existing object:
+or on-the-fly:
 
 ```php
-$colorize->normalize(64, 224);
+$colorize->text('foo')->normalize(64, 224)->rgb;  // Returns 'rgb(165, 196, 224)'
 ```
 
 Troubleshooting
@@ -64,4 +70,4 @@ Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/Colori
 Copyright
 ---------
 
-This project is liscensed under the [MIT License](https://github.com/PHLAK/Colorizer/blob/master/LICENSE).
+This project is licensed under the [MIT License](https://github.com/PHLAK/Colorizer/blob/master/LICENSE).
