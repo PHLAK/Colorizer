@@ -67,10 +67,31 @@ class ColorTest extends PHPUnit_Framework_TestCase
         new Colorizer\Color(12, 162, 234, 2);
     }
 
-    public function test_it_throws_an_exception_when_normalized_with_an_incorrect_value()
+    public function test_it_throws_an_exception_when_normalized_with_a_low_min_value()
     {
         $this->setExpectedException('OutOfRangeException');
 
-        $color = $this->color->normalize(-1, 256);
+        $this->color->normalize(-1, 42);
+    }
+
+    public function test_it_throws_an_exception_when_normalized_with_a_high_min_value()
+    {
+        $this->setExpectedException('OutOfRangeException');
+
+        $this->color->normalize(256, 42);
+    }
+
+    public function test_it_throws_an_exception_when_normalized_with_a_low_max_value()
+    {
+        $this->setExpectedException('OutOfRangeException');
+
+        $this->color->normalize(42, -1);
+    }
+
+    public function test_it_throws_an_exception_when_normalized_with_a_high_max_value()
+    {
+        $this->setExpectedException('OutOfRangeException');
+
+        $this->color->normalize(42, 256);
     }
 }

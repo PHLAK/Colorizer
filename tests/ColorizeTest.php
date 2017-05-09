@@ -2,35 +2,67 @@
 
 class ColorizeTest extends PHPUnit_Framework_TestCase
 {
-    /** @var Colorize Instance of Colorizer\Colorize */
-    protected $colorize;
+    /** @var Color Instance of Colorizer\Color */
+    protected $color;
 
     public function setup()
     {
-        $this->colorize = new Colorizer\Colorize();
+        $this->color = (new Colorizer\Colorize())->text('Taco bueno!');
     }
 
-    public function test_it_can_be_converted_to_rgb()
+    public function test_it_can_colorize_some_text()
     {
-        $this->assertEquals('rgb(165, 196, 254)', $this->colorize->toRGB('foo'));
+        $this->assertEquals(38, $this->color->red);
+        $this->assertEquals(6, $this->color->green);
+        $this->assertEquals(227, $this->color->blue);
+
+        $this->assertEquals('rgb(38, 6, 227)', $this->color->rgb());
+        $this->assertEquals('#2606e3', $this->color->hex());
     }
 
-    public function test_it_can_be_converted_to_hex()
+    public function test_it_can_be_normalized_on_the_fly()
     {
-        $this->assertEquals('#a5c4fe', $this->colorize->toHex('foo'));
+        $normalized = $this->color->normalize(64, 224);
+
+        $this->assertEquals(64, $normalized->red);
+        $this->assertEquals(64, $normalized->green);
+        $this->assertEquals(224, $normalized->blue);
     }
 
     public function test_it_can_be_normalized_via_the_constructor()
     {
-        $normalized = new Colorizer\Colorize(64, 224);
+        $normalized = (new Colorizer\Colorize(64, 224))->text('Taco bueno!');
 
-        $this->assertEquals('rgb(64, 64, 224)', $normalized->toRGB('Taco bueno!'));
+        $this->assertEquals(64, $normalized->red);
+        $this->assertEquals(64, $normalized->green);
+        $this->assertEquals(224, $normalized->blue);
     }
 
-    public function test_it_can_be_normalized_via_a_method()
+    public function test_it_throws_an_exception_when_initialized_with_a_low_min_value()
     {
-        $normalized = $this->colorize->normalize(64, 224);
+        $this->setExpectedException('OutOfRangeException');
 
-        $this->assertEquals('rgb(64, 64, 224)', $normalized->toRGB('Taco bueno!'));
+        new Colorizer\Colorize(-1, 42);
+    }
+
+    public function test_it_throws_an_exception_when_initialized_with_a_hight_min_value()
+    {
+        $this->setExpectedException('OutOfRangeException');
+
+        new Colorizer\Colorize(256, 42);
+    }
+
+    public function test_it_throws_an_exception_when_initialized_with_a_low_max_value()
+    {
+        $this->setExpectedException('OutOfRangeException');
+
+        new Colorizer\Colorize(42, -1);
+    }
+
+    public function test_it_throws_an_exception_when_initialized_with_a_hight_max_value()
+    {
+        $this->setExpectedException('OutOfRangeException');
+
+        new Colorizer\Colorize(42, 256);
     }
 }
