@@ -62,6 +62,11 @@ or on-the-fly:
 $colorize->text('foo')->normalize(64, 224)->rgb;  // Returns 'rgb(165, 196, 224)'
 ```
 
+Changelog
+---------
+
+A list of changes can be found on the [GitHub Releases](https://github.com/PHLAK/Colorizer/releases) page.
+
 Troubleshooting
 ---------------
 
