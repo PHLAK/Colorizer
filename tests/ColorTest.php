@@ -5,7 +5,8 @@ class ColorTest extends PHPUnit_Framework_TestCase
     /** @var Color Instance of Colorizer\Color */
     protected $color;
 
-    public function setUp() {
+    public function setUp()
+    {
         $this->color = new Colorizer\Color(12, 162, 234);
     }
 

@@ -20,7 +20,7 @@ class Color
     protected $alpha;
 
     /**
-     * Color constructor, runs on object creation
+     * Color constructor, runs on object creation.
      *
      * @param int   $red   Red color value (0 - 255)
      * @param int   $green Green color value (0 - 255)
@@ -43,18 +43,18 @@ class Color
             throw new OutOfRangeException('Alpha value must be between 0 and 1 (inclusive)');
         }
 
-        $this->red   = $red;
+        $this->red = $red;
         $this->green = $green;
-        $this->blue  = $blue;
+        $this->blue = $blue;
         $this->alpha = $alpha;
     }
 
     /**
-     * Class magic getter method, allows retrieving of class property values
+     * Class magic getter method, allows retrieving of class property values.
      *
-     * @param  string $property Property name
+     * @param string $property Property name
      *
-     * @return mixed            Property value
+     * @return mixed Property value
      */
     public function __get($property)
     {
@@ -62,12 +62,12 @@ class Color
     }
 
     /**
-     * Force color values to be within a specific range
+     * Force color values to be within a specific range.
      *
-     * @param  int    $min Minimum normalize value as integer (0 - 255)
-     * @param  int    $max Maximum normalize value as integer (0 - 255)
+     * @param int $min Minimum normalize value as integer (0 - 255)
+     * @param int $max Maximum normalize value as integer (0 - 255)
      *
-     * @return object      Normalized color object
+     * @return object Normalized color object
      */
     public function normalize($min, $max)
     {
@@ -75,29 +75,29 @@ class Color
             throw new OutOfRangeException('Normalization value must be between 0 and 255 (inclusive)');
         }
 
-        $red   = min(max($this->red, $min), $max);
+        $red = min(max($this->red, $min), $max);
         $green = min(max($this->green, $min), $max);
-        $blue  = min(max($this->blue, $min), $max);
+        $blue = min(max($this->blue, $min), $max);
 
         return new static($red, $green, $blue);
     }
 
     /**
-     * Returns the a hex string representation of the color object
+     * Returns the a hex string representation of the color object.
      *
      * @return string Hex string representation
      */
     public function hex()
     {
-        $red   = $this->decToHex($this->red);
+        $red = $this->decToHex($this->red);
         $green = $this->decToHex($this->green);
-        $blue  = $this->decToHex($this->blue);
+        $blue = $this->decToHex($this->blue);
 
         return '#' . $red . $green . $blue;
     }
 
     /**
-     * Returns a rgb() string representation of the color object
+     * Returns a rgb() string representation of the color object.
      *
      * @return string rgb() string representation
      */
@@ -107,7 +107,7 @@ class Color
     }
 
     /**
-     * Returns a rgba() string representation of the color object
+     * Returns a rgba() string representation of the color object.
      *
      * @return string rgba() string representation
      */
@@ -118,13 +118,13 @@ class Color
 
     /**
      * Verifies weather a given value or array of values is within a specified
-     * range (inclusive)
+     * range (inclusive).
      *
-     * @param  mixed $value Integer value or array of integer values to test
-     * @param  int   $min   Minimum acceptable value
-     * @param  int   $max   Maximum acceptable value
+     * @param mixed $value Integer value or array of integer values to test
+     * @param int   $min   Minimum acceptable value
+     * @param int   $max   Maximum acceptable value
      *
-     * @return bool         True if value is within acceptable range
+     * @return bool True if value is within acceptable range
      */
     protected function inRange($value, $min, $max)
     {
@@ -135,8 +135,11 @@ class Color
 
             case 'array':
                 foreach ($value as $val) {
-                    if (! $this->inRange($val, $min, $max)) return false;
+                    if (! $this->inRange($val, $min, $max)) {
+                        return false;
+                    }
                 }
+
                 return true;
                 break;
 
@@ -147,11 +150,11 @@ class Color
     }
 
     /**
-     * Converts an integer decimal value to a padded hex value
+     * Converts an integer decimal value to a padded hex value.
      *
-     * @param  int    $value Decimal integer value
+     * @param int $value Decimal integer value
      *
-     * @return string        String hex value
+     * @return string String hex value
      */
     protected function decToHex($value)
     {

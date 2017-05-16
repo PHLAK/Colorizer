@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Colorizer\\": "src/"
+            "Colorizer\\": "src/Colorizer/"
         }
     }
 }
