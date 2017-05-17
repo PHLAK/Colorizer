@@ -40,7 +40,7 @@ echo $color->green;  // 196
 echo $color->blue;   // 254
 
 // Generate a hex color code from 'foo'
-$hexColor = $colorize->->text('foo')->hex();  // Returns '#a5c4fe'
+$hexColor = $colorize->text('foo')->hex();  // Returns '#a5c4fe'
 
 // Generate a RGB color code from 'bar'
 $rgbColor = $colorize->text('foo')->rgb();  // Returns 'rgb(165, 196, 254)'
@@ -59,7 +59,7 @@ $colorize = new Colorizer\Colorize(64, 224);
 or on-the-fly:
 
 ```php
-$colorize->text('foo')->normalize(64, 224)->rgb;  // Returns 'rgb(165, 196, 224)'
+$colorize->text('foo')->normalize(64, 224)->rgb();  // Returns 'rgb(165, 196, 224)'
 ```
 
 Changelog
