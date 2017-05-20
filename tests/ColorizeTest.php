@@ -1,5 +1,7 @@
 <?php
 
+use Colorizer\Colorize;
+
 class ColorizeTest extends PHPUnit_Framework_TestCase
 {
     /** @var Color Instance of Colorizer\Color */
@@ -7,7 +9,7 @@ class ColorizeTest extends PHPUnit_Framework_TestCase
 
     public function setup()
     {
-        $this->color = (new Colorizer\Colorize())->text('Taco bueno!');
+        $this->color = (new Colorize())->text('Taco bueno!');
     }
 
     public function test_it_can_colorize_some_text()
@@ -31,7 +33,7 @@ class ColorizeTest extends PHPUnit_Framework_TestCase
 
     public function test_it_can_be_normalized_via_the_constructor()
     {
-        $normalized = (new Colorizer\Colorize(64, 224))->text('Taco bueno!');
+        $normalized = (new Colorize(64, 224))->text('Taco bueno!');
 
         $this->assertEquals(64, $normalized->red);
         $this->assertEquals(64, $normalized->green);
@@ -42,27 +44,27 @@ class ColorizeTest extends PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('OutOfRangeException');
 
-        new Colorizer\Colorize(-1, 42);
+        new Colorize(-1, 42);
     }
 
     public function test_it_throws_an_exception_when_initialized_with_a_hight_min_value()
     {
         $this->setExpectedException('OutOfRangeException');
 
-        new Colorizer\Colorize(256, 42);
+        new Colorize(256, 42);
     }
 
     public function test_it_throws_an_exception_when_initialized_with_a_low_max_value()
     {
         $this->setExpectedException('OutOfRangeException');
 
-        new Colorizer\Colorize(42, -1);
+        new Colorize(42, -1);
     }
 
     public function test_it_throws_an_exception_when_initialized_with_a_hight_max_value()
     {
         $this->setExpectedException('OutOfRangeException');
 
-        new Colorizer\Colorize(42, 256);
+        new Colorize(42, 256);
     }
 }
