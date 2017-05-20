@@ -29,22 +29,24 @@ Usage
 
 ```php
 // Import Colorizer
-use Colorizer;
+use Colorizer\Colorize;
 
 // Initialize Colorizer
-$colorize = new Colorizer\Colorize();
+$colorize = new Colorize();
 
 // Generate a Color object from 'foo'
 $color = $colorize->text('foo'); // Returns a new Color object
-echo $color->red;    // 165
-echo $color->green;  // 196
-echo $color->blue;   // 254
 
-// Generate a hex color code from 'foo'
-$hexColor = $colorize->text('foo')->hex();  // Returns '#a5c4fe'
+// Get the red, green and blue values
+$color->red;    // 165
+$color->green;  // 196
+$color->blue;   // 254
 
-// Generate a RGB color code from 'bar'
-$rgbColor = $colorize->text('foo')->rgb();  // Returns 'rgb(165, 196, 254)'
+// Generate a hex color code
+$color->hex();  // Returns '#a5c4fe'
+
+// Generate a RGB color code
+$color->rgb();  // Returns 'rgb(165, 196, 254)'
 ```
 
 #### Normalizing Colors
@@ -54,10 +56,10 @@ from being too bright or dark.  This is possible by passing minimum and maximum
 normalization values (0-255) to the Colorize class on initialization:
 
 ```php
-$colorize = new Colorizer\Colorize(64, 224);
+$colorize = new Colorize(64, 224);
 ```
 
-or on-the-fly:
+or fluently:
 
 ```php
 $colorize->text('foo')->normalize(64, 224)->rgb();  // Returns 'rgb(165, 196, 224)'
