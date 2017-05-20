@@ -15,7 +15,7 @@ Like this project? Keep me caffeinated by [making a donation](https://paypal.me/
 Requirements
 ------------
 
-  - [PHP](https://php.net) >= 5.4
+  - [PHP](https://php.net) >= 5.6
 
 Install with Composer
 ---------------------
