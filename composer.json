@@ -7,11 +7,11 @@
         {
             "name": "Chris Kankiewicz",
             "email": "Chris@ChrisKankiewicz.com",
-            "homepage": "http://www.chriskankiewicz.com"
+            "homepage": "https://www.chriskankiewicz.com"
         }
     ],
     "support": {
-        "email": "chris@chriskankiewicz.com"
+        "issues": "https://github.com/PHLAK/Colorizer/issues"
     },
     "require": {
         "php" : ">=5.6"
