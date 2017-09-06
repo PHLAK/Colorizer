@@ -33,10 +33,10 @@ Usage
 
 ```php
 // Import Colorizer
-use Colorizer\Colorize;
+use PHLAK\Colorizer;
 
 // Initialize Colorizer
-$colorize = new Colorize();
+$colorize = new Colorizer\Colorize();
 
 // Generate a Color object from 'foo'
 $color = $colorize->text('foo'); // Returns a new Color object
@@ -60,7 +60,7 @@ from being too bright or dark.  This is possible by passing minimum and maximum
 normalization values (0-255) to the Colorize class on initialization:
 
 ```php
-$colorize = new Colorize(64, 224);
+$colorize = new Colorizer\Colorize(64, 224);
 ```
 
 or fluently:

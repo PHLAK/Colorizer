@@ -1,8 +1,8 @@
 <?php
 
-namespace Colorizer;
+namespace PHLAK\Colorizer;
 
-use Colorizer\Traits\Rangeable;
+use PHLAK\Colorizer\Traits\Rangeable;
 use InvalidArgumentException;
 use OutOfRangeException;
 

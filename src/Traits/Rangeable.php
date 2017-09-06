@@ -1,6 +1,6 @@
 <?php
 
-namespace Colorizer\Traits;
+namespace PHLAK\Colorizer\Traits;
 
 use InvalidArgumentException;
 

@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Colorizer\\": "src/Colorizer/"
+            "PHLAK\\Colorizer\\": "src/"
         }
     }
 }

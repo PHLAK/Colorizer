@@ -1,6 +1,6 @@
 <?php
 
-use Colorizer\Colorize;
+use PHLAK\Colorizer\Colorize;
 
 class ColorizeTest extends PHPUnit_Framework_TestCase
 {
