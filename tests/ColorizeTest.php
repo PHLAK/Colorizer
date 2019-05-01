@@ -1,8 +1,9 @@
 <?php
 
 use PHLAK\Colorizer\Colorize;
+use PHPUnit\Framework\TestCase;
 
-class ColorizeTest extends PHPUnit_Framework_TestCase
+class ColorizeTest extends TestCase
 {
     /** @var Color Instance of Colorizer\Color */
     protected $color;
@@ -42,28 +43,28 @@ class ColorizeTest extends PHPUnit_Framework_TestCase
 
     public function test_it_throws_an_exception_when_initialized_with_a_low_min_value()
     {
-        $this->setExpectedException('OutOfRangeException');
+        $this->expectException('OutOfRangeException');
 
         new Colorize(-1, 42);
     }
 
     public function test_it_throws_an_exception_when_initialized_with_a_hight_min_value()
     {
-        $this->setExpectedException('OutOfRangeException');
+        $this->expectException('OutOfRangeException');
 
         new Colorize(256, 42);
     }
 
     public function test_it_throws_an_exception_when_initialized_with_a_low_max_value()
     {
-        $this->setExpectedException('OutOfRangeException');
+        $this->expectException('OutOfRangeException');
 
         new Colorize(42, -1);
     }
 
     public function test_it_throws_an_exception_when_initialized_with_a_hight_max_value()
     {
-        $this->setExpectedException('OutOfRangeException');
+        $this->expectException('OutOfRangeException');
 
         new Colorize(42, 256);
     }

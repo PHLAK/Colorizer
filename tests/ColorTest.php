@@ -1,8 +1,9 @@
 <?php
 
 use PHLAK\Colorizer\Color;
+use PHPUnit\Framework\TestCase;
 
-class ColorTest extends PHPUnit_Framework_TestCase
+class ColorTest extends TestCase
 {
     /** @var Color Instance of Colorizer\Color */
     protected $color;
@@ -51,49 +52,49 @@ class ColorTest extends PHPUnit_Framework_TestCase
 
     public function test_it_throws_an_exception_when_initialized_with_an_incorrect_rgb_value()
     {
-        $this->setExpectedException('OutOfRangeException');
+        $this->expectException('OutOfRangeException');
 
         new Color(12, 1337, 234);
     }
 
     public function test_it_throws_an_exception_when_initialized_with_an_incorrect_rgb_type()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
 
         new Color('potato', 162, 234);
     }
 
     public function test_it_throws_an_exception_when_initialized_with_an_incorrect_alpha_value()
     {
-        $this->setExpectedException('OutOfRangeException');
+        $this->expectException('OutOfRangeException');
 
         new Color(12, 162, 234, 2);
     }
 
     public function test_it_throws_an_exception_when_normalized_with_a_low_min_value()
     {
-        $this->setExpectedException('OutOfRangeException');
+        $this->expectException('OutOfRangeException');
 
         $this->color->normalize(-1, 42);
     }
 
     public function test_it_throws_an_exception_when_normalized_with_a_high_min_value()
     {
-        $this->setExpectedException('OutOfRangeException');
+        $this->expectException('OutOfRangeException');
 
         $this->color->normalize(256, 42);
     }
 
     public function test_it_throws_an_exception_when_normalized_with_a_low_max_value()
     {
-        $this->setExpectedException('OutOfRangeException');
+        $this->expectException('OutOfRangeException');
 
         $this->color->normalize(42, -1);
     }
 
     public function test_it_throws_an_exception_when_normalized_with_a_high_max_value()
     {
-        $this->setExpectedException('OutOfRangeException');
+        $this->expectException('OutOfRangeException');
 
         $this->color->normalize(42, 256);
     }
