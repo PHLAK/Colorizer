@@ -14,10 +14,11 @@
         "issues": "https://github.com/PHLAK/Colorizer/issues"
     },
     "require": {
-        "php" : ">=7.0"
+        "php": ">=7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.0 || ^7.0",
+        "php": ">=7.3",
+        "phpunit/phpunit": "^9.0",
         "friendsofphp/php-cs-fixer": "^2.3"
     },
     "autoload": {

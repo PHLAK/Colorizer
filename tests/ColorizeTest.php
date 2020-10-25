@@ -8,7 +8,7 @@ class ColorizeTest extends TestCase
     /** @var Color Instance of Colorizer\Color */
     protected $color;
 
-    public function setup()
+    public function setup(): void
     {
         $this->color = (new Colorize())->text('Taco bueno!');
     }

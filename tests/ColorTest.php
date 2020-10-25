@@ -8,7 +8,7 @@ class ColorTest extends TestCase
     /** @var Color Instance of Colorizer\Color */
     protected $color;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->color = new Color(12, 162, 234);
     }
