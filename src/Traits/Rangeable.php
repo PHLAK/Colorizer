@@ -11,8 +11,8 @@ trait Rangeable
      * range (inclusive).
      *
      * @param mixed $value Integer value or array of integer values to test
-     * @param int   $min   Minimum acceptable value
-     * @param int   $max   Maximum acceptable value
+     * @param int $min Minimum acceptable value
+     * @param int $max Maximum acceptable value
      *
      * @return bool True if value is within acceptable range
      */

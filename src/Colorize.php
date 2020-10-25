@@ -2,9 +2,9 @@
 
 namespace PHLAK\Colorizer;
 
-use PHLAK\Colorizer\Traits\Rangeable;
 use InvalidArgumentException;
 use OutOfRangeException;
+use PHLAK\Colorizer\Traits\Rangeable;
 
 class Colorize
 {
@@ -58,9 +58,6 @@ class Colorize
 
     /**
      * Return a new static Colorize class with specified normalization values.
-     *
-     * @param int $value Minimum normalization value (0 - 255)
-     * @param int $value Maximum normalization value (0 - 255)
      *
      * @return object This colorize object
      */

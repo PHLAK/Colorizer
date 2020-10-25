@@ -2,12 +2,13 @@
 
 namespace PHLAK\Colorizer;
 
-use PHLAK\Colorizer\Traits\Rangeable;
 use InvalidArgumentException;
 use OutOfRangeException;
+use PHLAK\Colorizer\Traits\Rangeable;
 
 class Color
 {
+    use Rangeable;
     /** @var int Red color value */
     protected $red;
 
@@ -20,14 +21,12 @@ class Color
     /** @var float Alpha channel value */
     protected $alpha;
 
-    use Rangeable;
-
     /**
      * Color constructor, runs on object creation.
      *
-     * @param int   $red   Red color value (0 - 255)
-     * @param int   $green Green color value (0 - 255)
-     * @param int   $blue  Blue color value (0 - 255)
+     * @param int $red Red color value (0 - 255)
+     * @param int $green Green color value (0 - 255)
+     * @param int $blue Blue color value (0 - 255)
      * @param float $alpha Alpha value (0 - 1)
      */
     public function __construct($red, $green, $blue, $alpha = 1)
