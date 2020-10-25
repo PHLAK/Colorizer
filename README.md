@@ -1,24 +1,30 @@
 Colorizer
 =========
 
-![Colorizer](colorizer.png)
+<p align="center">
+    <img src="colorizer.png" alt="Colorizer" width="66%">
+</p>
 
------
+<p align="center">
+    <a href="https://spectrum.chat/phlaknet"><img src="https://img.shields.io/badge/Join_the-Community-7b16ff.svg?style=for-the-badge" alt="Join our Community"></a>
+    <a href="https://github.com/users/PHLAK/sponsorship"><img src="https://img.shields.io/badge/Become_a-Sponsor-cc4195.svg?style=for-the-badge" alt="Become a Sponsor"></a>
+    <a href="https://paypal.me/ChrisKankiewicz"><img src="https://img.shields.io/badge/Make_a-Donation-006bb6.svg?style=for-the-badge" alt="One-time Donation"></a>
+    <br>
+    <a href="https://packagist.org/packages/PHLAK/Colorizer"><img src="https://img.shields.io/packagist/v/PHLAK/Colorizer.svg?style=flat-square" alt="Latest Stable Version"></a>
+    <a href="https://packagist.org/packages/PHLAK/Colorizer"><img src="https://img.shields.io/packagist/dt/PHLAK/Colorizer.svg?style=flat-square" alt="Total Downloads"></a>
+    <a href="https://github.com/PHLAK/Colorizer/blob/master/LICENSE"><img src="https://img.shields.io/github/license/PHLAK/Colorizer.svg?style=flat-square" alt="License"></a>
+    <a href="https://travis-ci.com/PHLAK/Colorizer"><img src="https://img.shields.io/travis/com/PHLAK/Colorizer.svg?style=flat-square" alt="Build Status"></a>
+    <a href="https://styleci.io/repos/18544734"><img src="https://styleci.io/repos/18544734/shield?branch=master&style=flat-square" alt="StyleCI"></a>
+</p>
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/phlak/colorizer.svg)](https://packagist.org/packages/phlak/colorizer)
-[![Total Downloads](https://img.shields.io/packagist/dt/phlak/colorizer.svg)](https://packagist.org/packages/phlak/colorizer)
-[![Author](https://img.shields.io/badge/author-Chris%20Kankiewicz-blue.svg)](https://www.ChrisKankiewicz.com)
-[![License](https://img.shields.io/packagist/l/phlak/colorizer.svg)](https://packagist.org/packages/phlak/colorizer)
-[![Build Status](https://img.shields.io/travis/PHLAK/Colorizer.svg)](https://travis-ci.org/PHLAK/Colorizer)
-[![StyleCI](https://styleci.io/repos/18544734/shield?branch=master&style=flat)](https://styleci.io/repos/18544734)
 
-Generate persistently unique colors from a string.
+<p align="center">
+    Generate persistently unique colors from a string.
+    <br>
+    Created by <a href="https://www.ChrisKankiewicz.com">Chris Kankiewicz</a> (<a href="https://twitter.com/PHLAK">@PHLAK</a>)
+</p>
 
-#### Like this project?
-
-[![Join the community on Spectrum](https://img.shields.io/badge/Join_the_community-PHLAKNET-7a15fe.svg)](https://spectrum.chat/phlaknet)
-[![Become a Patron](https://img.shields.io/badge/Become_a-Patron-f96854.svg)](https://patreon.com/PHLAK)
-[![One-time Donation](https://img.shields.io/badge/Make_a-Donation-006bb6.svg)](https://paypal.me/ChrisKankiewicz)
+---
 
 Requirements
 ------------
@@ -81,7 +87,8 @@ A list of changes can be found on the [GitHub Releases](https://github.com/PHLAK
 Troubleshooting
 ---------------
 
-For general help and support join our [Spectrum community](https://spectrum.chat/phlaknet).
+For general help and support join our [Spectrum Community](https://spectrum.chat/phlaknet
+or reach out on [Twitter](https://twitter.com/PHLAK).
 
 Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/Colorizer/issues).
 
