@@ -19,7 +19,7 @@
     "require-dev": {
         "php": "^8.2 || ^8.3",
         "phlak/coding-standards": "^3.0",
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^11.4"
     },
     "autoload": {
         "psr-4": {
