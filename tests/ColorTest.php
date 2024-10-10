@@ -10,7 +10,7 @@ class ColorTest extends TestCase
 
     public function setUp(): void
     {
-        $this->color = new Color(12, 162, 234);
+        $this->color = new Color(12, 162, 234, 0.5);
     }
 
     public function test_it_has_a_red_value()
@@ -28,6 +28,11 @@ class ColorTest extends TestCase
         $this->assertEquals(234, $this->color->blue);
     }
 
+    public function test_it_has_an_alpha_value()
+    {
+        $this->assertEquals(0.5, $this->color->alpha);
+    }
+
     public function test_it_has_a_hex_value()
     {
         $this->assertEquals('#0ca2ea', $this->color->hex());
@@ -40,7 +45,7 @@ class ColorTest extends TestCase
 
     public function test_it_has_an_rgba_value()
     {
-        $this->assertEquals('rgba(12, 162, 234, 1)', $this->color->rgba());
+        $this->assertEquals('rgba(12, 162, 234, 0.5)', $this->color->rgba());
     }
 
     public function test_it_can_be_normalized()
