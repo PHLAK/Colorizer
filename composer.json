@@ -14,10 +14,10 @@
         "issues": "https://github.com/PHLAK/Colorizer/issues"
     },
     "require": {
-        "php": "^8.1 || ^8.2 || ^8.3"
+        "php": "^8.2 || ^8.3"
     },
     "require-dev": {
-        "php": "^8.2",
+        "php": "^8.2 || ^8.3",
         "phlak/coding-standards": "^3.0",
         "phpunit/phpunit": "^9.0"
     },
