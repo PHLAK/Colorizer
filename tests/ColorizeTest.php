@@ -10,7 +10,7 @@ class ColorizeTest extends TestCase
 
     public function setup(): void
     {
-        $this->color = (new Colorize())->text('Taco bueno!');
+        $this->color = (new Colorize)->text('Taco bueno!');
     }
 
     public function test_it_can_colorize_some_text()
