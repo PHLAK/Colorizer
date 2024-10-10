@@ -29,7 +29,7 @@ Colorizer
 Requirements
 ------------
 
-  - [PHP](https://php.net) >= 7.0
+  - [PHP](https://php.net) >= 8.1
 
 Install with Composer
 ---------------------
