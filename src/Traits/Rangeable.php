@@ -20,6 +20,8 @@ trait Rangeable
     {
         switch (gettype($value)) {
             case 'integer':
+            case 'float':
+            case 'double':
                 return $min <= $value && $value <= $max;
 
             case 'array':
