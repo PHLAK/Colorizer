@@ -9,9 +9,10 @@ readonly class Color
     /**
      * Create a new Color object.
 
+     *
      * @param $red Red color value (0 - 255)
      * @param $green Green color value (0 - 255)
-     * @param $bkue Blue color value (0 - 255)
+     * @param $blue Blue color value (0 - 255)
      * @param $alpha Alpha value (0 - 1)
      */
     public function __construct(
