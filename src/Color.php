@@ -8,7 +8,6 @@ readonly class Color
 {
     /**
      * Create a new Color object.
-
      *
      * @param $red Red color value (0 - 255)
      * @param $green Green color value (0 - 255)
