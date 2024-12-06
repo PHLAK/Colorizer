@@ -5,16 +5,10 @@ updates:
     directory: "/"
     schedule:
       interval: monthly
-      timezone: US/Arizona
-    open-pull-requests-limit: 10
-    assignees:
-      - PHLAK
+    assignees: [PHLAK]
 
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: monthly
-      timezone: US/Arizona
-    open-pull-requests-limit: 10
-    assignees:
-      - PHLAK
+    assignees: [PHLAK]

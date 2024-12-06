@@ -2,56 +2,37 @@
 
 namespace PHLAK\Colorizer;
 
-use InvalidArgumentException;
-use OutOfRangeException;
-use PHLAK\Colorizer\Traits\Rangeable;
+use Webmozart\Assert\Assert;
 
 class Colorize
 {
-    use Rangeable;
-
-    /** @var int Minimum normalization value */
-    protected $normalizeMin = 0;
-
-    /** @var int Maximum normalization value */
-    protected $normalizeMax = 255;
-
     /**
-     * Colorize constructor, runs on object creation.
+     * Create a new Colorize object.
      *
-     * @param int $normalizeMin Minimum normalized decimal value
-     * @param int $normalizeMax Maximum normalized decimal value
+     * @param $normalizeMin Minimum normalization value
+     * @param $normalizeMax Maximum normalization value
      */
-    public function __construct($normalizeMin = 0, $normalizeMax = 255)
-    {
-        foreach ([$normalizeMin, $normalizeMax] as $var) {
-            if (! is_int($var)) {
-                throw new InvalidArgumentException('Normalization values must be an integer');
-            }
-        }
-
-        if (! $this->inRange([$normalizeMin, $normalizeMax], 0, 255)) {
-            throw new OutOfRangeException('Normalization values must be between 0 and 255 (inclusive)');
-        }
-
-        $this->normalizeMin = $normalizeMin;
-        $this->normalizeMax = $normalizeMax;
+    public function __construct(
+        private readonly int $normalizeMin = 0,
+        private readonly int $normalizeMax = 255,
+    ) {
+        Assert::allRange([$normalizeMin, $normalizeMax], 0, 255, 'Normalization values must be between 0 and 255 (inclusive)');
     }
 
     /**
-     * Generate a new Color object from a string.
+     * Generate a new, normalized Color object from a string.
      *
      * @param string $string Input string
      *
-     * @return Color Color object
+     * @return Color Normalized Color object
      */
-    public function text($string)
+    public function text($string): Color
     {
         $hash = substr(hash('crc32', $string), 0, 6);
 
-        $red = hexdec(substr($hash, 0, 2));
-        $green = hexdec(substr($hash, 2, 2));
-        $blue = hexdec(substr($hash, 4, 2));
+        $red = (int) hexdec(substr($hash, 0, 2));
+        $green = (int) hexdec(substr($hash, 2, 2));
+        $blue = (int) hexdec(substr($hash, 4, 2));
 
         return (new Color($red, $green, $blue))->normalize($this->normalizeMin, $this->normalizeMax);
     }
@@ -59,10 +40,10 @@ class Colorize
     /**
      * Return a new static Colorize class with specified normalization values.
      *
-     * @return object This colorize object
+     * @return self This colorize object
      */
-    public function normalize($min = 0, $max = 255)
+    public function normalize(int $min = 0, int $max = 255): self
     {
-        return new static($min, $max);
+        return new self($min, $max);
     }
 }

@@ -14,12 +14,13 @@
         "issues": "https://github.com/PHLAK/Colorizer/issues"
     },
     "require": {
-        "php": "^8.2 || ^8.3"
+        "php": "^8.2 || ^8.3 || ^8.4",
+        "webmozart/assert": "^1.11"
     },
     "require-dev": {
-        "php": "^8.2 || ^8.3",
         "phlak/coding-standards": "^3.0",
-        "phpunit/phpunit": "^11"
+        "phpunit/phpunit": "^11",
+        "phpstan/phpstan": "^2.0"
     },
     "autoload": {
         "psr-4": {

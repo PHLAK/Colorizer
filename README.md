@@ -6,15 +6,14 @@ Colorizer
 </p>
 
 <p align="center">
-    <a href="https://spectrum.chat/phlaknet"><img src="https://img.shields.io/badge/Join_the-Community-7b16ff.svg?style=for-the-badge" alt="Join our Community"></a>
+    <a href="https://github.com/PHLAK/Colorizer/discussions"><img src="https://img.shields.io/badge/Join_the-Community-7b16ff.svg?style=for-the-badge" alt="Join our Community"></a>
     <a href="https://github.com/users/PHLAK/sponsorship"><img src="https://img.shields.io/badge/Become_a-Sponsor-cc4195.svg?style=for-the-badge" alt="Become a Sponsor"></a>
     <a href="https://paypal.me/ChrisKankiewicz"><img src="https://img.shields.io/badge/Make_a-Donation-006bb6.svg?style=for-the-badge" alt="One-time Donation"></a>
     <br>
     <a href="https://packagist.org/packages/PHLAK/Colorizer"><img src="https://img.shields.io/packagist/v/PHLAK/Colorizer.svg?style=flat-square" alt="Latest Stable Version"></a>
     <a href="https://packagist.org/packages/PHLAK/Colorizer"><img src="https://img.shields.io/packagist/dt/PHLAK/Colorizer.svg?style=flat-square" alt="Total Downloads"></a>
     <a href="https://github.com/PHLAK/Colorizer/blob/master/LICENSE"><img src="https://img.shields.io/github/license/PHLAK/Colorizer.svg?style=flat-square" alt="License"></a>
-    <a href="https://travis-ci.com/PHLAK/Colorizer"><img src="https://img.shields.io/travis/com/PHLAK/Colorizer.svg?style=flat-square" alt="Build Status"></a>
-    <a href="https://styleci.io/repos/18544734"><img src="https://styleci.io/repos/18544734/shield?branch=master&style=flat-square" alt="StyleCI"></a>
+    <a href="https://github.com/PHLAK/Colorizer/actions"><img src="https://img.shields.io/github/actions/workflow/status/PHLAK/Colorizer/test-suite.yaml?style=flat-square" alt="Build Status"></a>
 </p>
 
 
@@ -87,8 +86,8 @@ A list of changes can be found on the [GitHub Releases](https://github.com/PHLAK
 Troubleshooting
 ---------------
 
-For general help and support join our [Spectrum Community](https://spectrum.chat/phlaknet
-or reach out on [Twitter](https://twitter.com/PHLAK).
+For general help and support join our [GitHub Discussion](https://github.com/PHLAK/Colorizer/discussions)
+or reach out on [Bluesky](https://bsky.app/profile/phlak.dev).
 
 Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/Colorizer/issues).
 

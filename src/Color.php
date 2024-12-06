@@ -2,86 +2,45 @@
 
 namespace PHLAK\Colorizer;
 
-use InvalidArgumentException;
-use OutOfRangeException;
-use PHLAK\Colorizer\Traits\Rangeable;
+use Webmozart\Assert\Assert;
 
-class Color
+readonly class Color
 {
-    use Rangeable;
-    /** @var int Red color value */
-    protected $red;
-
-    /** @var int Green color value */
-    protected $green;
-
-    /** @var int Blue color value */
-    protected $blue;
-
-    /** @var float Alpha channel value */
-    protected $alpha;
-
     /**
-     * Color constructor, runs on object creation.
-     *
-     * @param int $red Red color value (0 - 255)
-     * @param int $green Green color value (0 - 255)
-     * @param int $blue Blue color value (0 - 255)
-     * @param float $alpha Alpha value (0 - 1)
+     * Create a new Color object.
+
+     * @param $red Red color value (0 - 255)
+     * @param $green Green color value (0 - 255)
+     * @param $bkue Blue color value (0 - 255)
+     * @param $alpha Alpha value (0 - 1)
      */
-    public function __construct($red, $green, $blue, $alpha = 1)
-    {
-        foreach ([$red, $green, $blue] as $var) {
-            if (! is_int($var)) {
-                throw new InvalidArgumentException('RGB values must be an integer');
-            }
-        }
-
-        if (! $this->inRange([$red, $green, $blue], 0, 255)) {
-            throw new OutOfRangeException('RGB values must be between 0 and 255 (inclusive)');
-        }
-
-        if (! $this->inRange($alpha, 0, 1)) {
-            throw new OutOfRangeException('Alpha value must be between 0 and 1 (inclusive)');
-        }
-
-        $this->red = $red;
-        $this->green = $green;
-        $this->blue = $blue;
-        $this->alpha = $alpha;
-    }
-
-    /**
-     * Class magic getter method, allows retrieving of class property values.
-     *
-     * @param string $property Property name
-     *
-     * @return mixed Property value
-     */
-    public function __get($property)
-    {
-        return $this->$property;
+    public function __construct(
+        public readonly int $red,
+        public readonly int $green,
+        public readonly int $blue,
+        public readonly float $alpha = 1
+    ) {
+        Assert::allRange([$red, $green, $blue], 0, 255, 'RGB values must be between 0 and 255 (inclusive)');
+        Assert::range($alpha, 0, 1, 'Alpha value must be between 0 and 1 (inclusive)');
     }
 
     /**
      * Force color values to be within a specific range.
      *
-     * @param int $min Minimum normalize value as integer (0 - 255)
-     * @param int $max Maximum normalize value as integer (0 - 255)
+     * @param $min Minimum normalize value as integer (0 - 255)
+     * @param $max Maximum normalize value as integer (0 - 255)
      *
-     * @return object Normalized color object
+     * @return self Normalized color object
      */
-    public function normalize($min, $max)
+    public function normalize(int $min, int $max): self
     {
-        if (! $this->inRange($min, 0, 255) || ! $this->inRange($max, 0, 255)) {
-            throw new OutOfRangeException('Normalization value must be between 0 and 255 (inclusive)');
-        }
+        Assert::allRange([$min, $max], 0, 255, 'Normalization value must be between 0 and 255 (inclusive)');
 
         $red = min(max($this->red, $min), $max);
         $green = min(max($this->green, $min), $max);
         $blue = min(max($this->blue, $min), $max);
 
-        return new static($red, $green, $blue);
+        return new self($red, $green, $blue);
     }
 
     /**
@@ -89,13 +48,9 @@ class Color
      *
      * @return string Hex string representation
      */
-    public function hex()
+    public function hex(): string
     {
-        $red = $this->decToHex($this->red);
-        $green = $this->decToHex($this->green);
-        $blue = $this->decToHex($this->blue);
-
-        return '#' . $red . $green . $blue;
+        return sprintf('#%s%s%s', $this->decToHex($this->red), $this->decToHex($this->green), $this->decToHex($this->blue));
     }
 
     /**
@@ -103,9 +58,9 @@ class Color
      *
      * @return string rgb() string representation
      */
-    public function rgb()
+    public function rgb(): string
     {
-        return 'rgb(' . $this->red . ', ' . $this->green . ', ' . $this->blue . ')';
+        return sprintf('rgb(%d, %d, %d)', $this->red, $this->green, $this->blue);
     }
 
     /**
@@ -113,19 +68,19 @@ class Color
      *
      * @return string rgba() string representation
      */
-    public function rgba()
+    public function rgba(): string
     {
-        return 'rgba(' . $this->red . ', ' . $this->green . ', ' . $this->blue . ', ' . $this->alpha . ')';
+        return sprintf('rgba(%d, %d, %d, %g)', $this->red, $this->green, $this->blue, $this->alpha);
     }
 
     /**
      * Converts an integer decimal value to a padded hex value.
      *
-     * @param int $value Decimal integer value
+     * @param $value Decimal integer value
      *
      * @return string String hex value
      */
-    protected function decToHex($value)
+    private function decToHex(int $value): string
     {
         return str_pad(dechex($value), 2, '0', STR_PAD_LEFT);
     }
