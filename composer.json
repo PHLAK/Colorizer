@@ -18,7 +18,7 @@
         "webmozart/assert": "^1.11"
     },
     "require-dev": {
-        "phlak/coding-standards": "^3.0",
+        "phlak/coding-standards": "^4.0",
         "phpunit/phpunit": "^11",
         "phpstan/phpstan": "^2.0"
     },
